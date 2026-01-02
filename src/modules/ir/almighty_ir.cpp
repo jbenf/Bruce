@@ -6,7 +6,6 @@
 #include "core/settings.h"
 #include "core/type_convertion.h"
 #include "custom_ir.h"
-#include "dreamscreen.h"
 #include <HTTPClient.h>
 #include <IRutils.h>
 #include <WiFi.h>
@@ -61,23 +60,6 @@ void bruceAlmighty() {
         bool exit = false;
         bool back = false;
         bool mode_cmd = true;
-        // options = {
-        //     {"Choose cmd", [&]() { mode_cmd = true; } },
-        //     {"Spam all",   [&]() { mode_cmd = false; }},
-        //     {"Menu",       [&]() { exit = true; }     },
-        // };
-
-        // loopOptions(options);
-
-        // if (exit == true) return;
-
-        // if (mode_cmd == false) {
-        //     // Spam all selected
-        //     txIrFile(fs, filepath);
-        //     return;
-        // }
-
-        // else continue and try to parse the file
 
         databaseFile = fs->open(filepath, FILE_READ);
         drawMainBorder();

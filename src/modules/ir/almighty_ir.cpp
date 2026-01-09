@@ -72,7 +72,7 @@ void bruceAlmighty() {
         }
         Serial.println("Opened database file.");
 
-        pinMode(bruceConfig.irTx, OUTPUT);
+        pinMode(bruceConfigPins.irTx, OUTPUT);
         // digitalWrite(bruceConfig.irTx, LED_ON);
 
         // Mode to choose and send command by command limitted to 100 commands
@@ -137,7 +137,7 @@ void bruceAlmighty() {
         PPM.disableOTG();
 #endif
 
-        digitalWrite(bruceConfig.irTx, LED_OFF);
+        digitalWrite(bruceConfigPins.irTx, LED_OFF);
         int idx = 0;
         while (1) {
             idx = loopOptions(options, idx);
@@ -174,6 +174,13 @@ void sendPostCommand(IRCode *code, String token) {
         displayTextLine("No Wifi");
         delay(500);
     }
+}
+
+void bruceAlmightyM5Cc() {
+    FS *fs = setupSdCard() ? static_cast<FS *>(&SD) : static_cast<FS *>(&LittleFS);
+    resetTftDisplay();
+    drawPNG(*fs, "/BruceIR/almighty/icons/bd.png", 0, 0, false);
+    while (1) {}
 }
 
 void sendGetCommand(IRCode *code) {

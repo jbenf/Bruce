@@ -13,3 +13,4 @@ void sendPostCommand(IRCode *code, String token);
 void sendGetCommand(IRCode *code);
 void sendUDPCommand(IRCode *code);
 void bruceAlmighty();
+void bruceAlmightyM5Cc();
